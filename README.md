@@ -3,11 +3,11 @@
 
 **DATE:**
 
-**NAME:**
+**NAME: Motta Katta Mounika**
 
-**ROLL NO:**
+**ROLL NO: 212224040202**
 
-**DEPARTMENT:**
+**DEPARTMENT: BE(CSE)**
 
 ## Aim
 
@@ -32,8 +32,8 @@ With its power-efficient design, built-in LoRaWAN support, and flexible communic
 ## Procedure
 
 1. Click on STM 32 CUBE IDE, the following screen will appear
-   
- ![image](https://user-images.githubusercontent.com/36288975/226189166-ac10578c-c059-40e7-8b80-9f84f64bf088.png)
+   <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/19435919-17a3-465b-8b56-13cf34f0709b" />
+
 
 
 2. Click on FILE, click on new stm 32 project
@@ -99,10 +99,82 @@ With its power-efficient design, built-in LoRaWAN support, and flexible communic
 ## STM 32 CUBE PROGRAM
 
 ```
-// Your STM 32 CUBE Program code here
+#include "main.h"
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+
+  while (1)
+  {
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+    HAL_Delay(4000);
+
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+    HAL_Delay(4000);
+  }
+}
+
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
+
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+
+  HAL_RCC_OscConfig(&RCC_OscInitStruct);
+
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK |
+                               RCC_CLOCKTYPE_SYSCLK |
+                               RCC_CLOCKTYPE_PCLK1 |
+                               RCC_CLOCKTYPE_PCLK2;
+
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0);
+}
+
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
 ```
 
 ## OUTPUT
+
+ ## ON: 
+
+ <img width="720" height="1600" alt="WhatsApp Image 2026-04-29 at 9 32 58 AM (1)" src="https://github.com/user-attachments/assets/75af30f6-f15e-4357-9036-404746aa14a9" />
+
+
+## OFF:
+
+<img width="720" height="1600" alt="WhatsApp Image 2026-04-29 at 9 32 59 AM" src="https://github.com/user-attachments/assets/e08a57f6-34a4-44be-af13-38482fd48c88" />
+
 
 ## Result
 
