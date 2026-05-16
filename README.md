@@ -167,12 +167,13 @@ static void MX_GPIO_Init(void)
 
  ## ON: 
 
- <img width="720" height="1600" alt="WhatsApp Image 2026-04-29 at 9 32 58 AM (1)" src="https://github.com/user-attachments/assets/75af30f6-f15e-4357-9036-404746aa14a9" />
+<img width="1280" height="960" alt="WhatsApp Image 2026-05-16 at 9 42 03 AM" src="https://github.com/user-attachments/assets/6e95e777-6362-4bf6-ba55-a5aa1797920c" />
+
 
 
 ## OFF:
+<img width="1280" height="960" alt="WhatsApp Image 2026-05-16 at 9 42 03 AM (1)" src="https://github.com/user-attachments/assets/167dde24-3a94-462d-9d47-bd0f0f626e14" />
 
-<img width="720" height="1600" alt="WhatsApp Image 2026-04-29 at 9 32 59 AM" src="https://github.com/user-attachments/assets/e08a57f6-34a4-44be-af13-38482fd48c88" />
 
 
 ## Result
